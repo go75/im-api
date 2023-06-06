@@ -1,0 +1,13 @@
+{
+    "Server": {
+        "Addr": "127.0.0.1:7001"
+    },
+    "Dispatcher": {
+        "Size": 5
+    },
+    "Etcd": {
+        "ServiceName": "ws-srv",
+        "Endpoints":  ["127.0.0.1:2379"],
+        "TTL": 600
+    }
+}

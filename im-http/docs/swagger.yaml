@@ -1,0 +1,144 @@
+info:
+  contact:
+    name: 陈序缘
+    url: https://github.com/go75?tab=repositories
+  description: 'http网关功能: 登录, 注册, 头像'
+  title: im系统http网关接口
+  version: 1.0 版本
+paths:
+  /group/head/{filename}:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: 获取群聊头像
+      parameters:
+      - description: 群聊名.png
+        in: path
+        name: filename
+        required: true
+        type: string
+      produces:
+      - image/png
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: 群聊头像
+      tags:
+      - 群聊模块
+  /group/regist:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: 群聊注册服务
+      parameters:
+      - description: 群聊名称
+        in: formData
+        name: name
+        required: true
+        type: string
+      - description: 群聊介绍
+        in: formData
+        name: introduce
+        required: true
+        type: string
+      - description: 群聊头像
+        in: formData
+        name: head
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: 群聊注册
+      tags:
+      - 群聊模块
+  /head/{filename}:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: 获取用户头像
+      parameters:
+      - description: 用户名.png
+        in: path
+        name: filename
+        required: true
+        type: string
+      produces:
+      - image/png
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: 用户头像
+      tags:
+      - 用户模块
+  /login:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: 用户登录服务
+      parameters:
+      - description: 用户名
+        in: formData
+        name: name
+        required: true
+        type: string
+      - description: 用户密码
+        in: formData
+        name: pwd
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: 用户登录
+      tags:
+      - 用户模块
+  /regist:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: 用户注册服务
+      parameters:
+      - description: 用户名
+        in: formData
+        name: name
+        required: true
+        type: string
+      - description: 用户密码
+        in: formData
+        name: pwd
+        required: true
+        type: string
+      - description: 确认密码
+        in: formData
+        name: check
+        required: true
+        type: string
+      - description: 用户头像
+        in: formData
+        name: head
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: 用户注册
+      tags:
+      - 用户模块
+swagger: "2.0"
